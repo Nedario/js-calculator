@@ -22,28 +22,38 @@ function afficher(res){
 
 function tabErrors(obj, res){
     // if(!isNaN(obj.input1) || !isNaN(obj.input2)){
-        if(!isNaN(obj.input1))
-            tab.push("La premiere saisie n'est pas un nombre")
-        if(!isNaN(obj.input2))
-            tab.push("La deuxieme saisie n'est pas un nombre")
-        if(!isFinite(res))
-            tab.push("Erreur de calcul");
-        return tab;
+    if(isNaN(obj.input1))
+        tab.push(" La premiere saisie n'est pas un nombre ");
+    if(isNaN(obj.input2))
+        tab.push(" La deuxieme saisie n'est pas un nombre ");
+    if(!isFinite(res))
+        tab.push("Erreur de calcul");
+    return tab;
     // }else{
     //     return false;
     // }
     // return tab;
 }
 function verifErrors(){
+
     if(tab.length>0)
         return true;
     else
         return false;
 }
 
+function removeResult(){
+    
+    n.innerHTML="";
+    document.getElementById('nb1').value = "";
+    document.getElementById('nb2').value = "";
+    tab = [];
+}
+
 function afficherErrors(){
-    for(i=0;i<tab.length;i++){
-        n.innerHTML = tab[i];
+
+    for(i=tab.length;i>0;i--){
+        n.textContent = tab;
     }
 };
 
@@ -59,11 +69,18 @@ function main(){
 
     var saisie = recherche("nb1","nb2","selector");
     var resultat = calculer(saisie);
+
     tabErrors(saisie, resultat);
     if(verifErrors())
         afficherErrors();
     else
         afficher(resultat);
+    
+    tab = [];
 }
 
 btn.addEventListener('click', main);
+
+var removeBtn = document.getElementById('clear');
+
+removeBtn.addEventListener('click', removeResult);
