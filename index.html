@@ -17,22 +17,22 @@
     - une balise script contenant le code JS
     -->
         
-     <input type="text" placeholder="saisie ton premier chiffre">
+     <input id="nb1 "type="text" placeholder="saisie ton premier chiffre">
         
-     <input type="text" placeholder="saisie ton deuxieme chiffre">
+     <input id="nb2" type="text" placeholder="saisie ton deuxieme chiffre">
     
-     <select id="operateurs" multiple>
-          <option value="addition"> + </option>
-          <option value="soustraction"> - </option>
-          <option value="multicplication"> * </option>
-          <option value="division"> / </option>
+     <select id="selector" type="list" id="operateurs">
+          <option id="plus" value="addition"> + </option>
+          <option id="moins" value="soustraction"> - </option>
+          <option id="multi" value="multicplication"> * </option>
+          <option id="divi" value="division"> / </option>
      </select>
         
-     <p>
+     <p id="result">
         
      </p>
         
-     <script type="text/javascript" src="" ></script>
+     <script type="text/javascript" src="jscalculator.js" ></script>
         
         
     
